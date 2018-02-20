@@ -1,0 +1,37 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* changes the box model of an element */
+}
+
+body {
+	/* properties related to font are inherited from the body, doing it this way is more efficient*/
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #777;
+	padding: 30px;
+}
+
+.header {
+	height: 95vh; /* at every point in this page the height of this element is 95% of the viewport*/ /* linear-gradient adds a gradient in the direction you choose with the colors you choose*/
+	background-image: linear-gradient(
+		to right bottom, 
+		rgba(126, 213, 111, 0.8), 
+		rgba(40, 180, 131, 0.8)), 
+	url(../img/hero.jpg); /* you can stack images on top of each other by seperating with a comma*/
+	background-size: cover;
+	background-position: top; /*background-position anchors the part of the image selected i.e. bottom, top, center so that whenever the viewport changes that point stays the same */
+
+	clip-path: polygon(0 0, 100% 0,100% 75vh,0 100%); /* allows you clip part of an image based on coordinates*/ 
+}
