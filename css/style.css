@@ -49,9 +49,8 @@ body {
 	height: 35px; /* setting the height/width and the image will scale accordingly */
 }
 
-.heading-primary {
-	color: white;
-	text-transform: uppercase;
+.Logo:hover {
+	animation: moveInLeft 1s ease-out;
 }
 
 .text-box {
@@ -60,6 +59,19 @@ body {
 	left: 50%; /* in relation to the parent element*/
 	transform: translate(-50%, -50%); /* shifts the element 50% top and right */
 }
+
+/* there are two types of  CSS animations 
+	1. using the transition property
+	2. keyframes
+*/
+
+.heading-primary {
+	color: white;
+	text-transform: uppercase;
+
+	backface-visibility: hidden; /* fix for shake in animation - hides the part behind the element from the user */
+}
+
 /* using the span element allows us to style individual elements within an element*/
 
 .heading-primary-main {
@@ -67,11 +79,57 @@ body {
 	font-size: 60px;
 	font-weight: 400;
 	letter-spacing: 35px;
+
+	/* two things are needed in initiating an animation: animatio-name (name of the animation defined) animation-duration(how long)*/
+	animation-name: moveInLeft;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	/*
+	animation-iteration-count: 3; repeats the animation
+	animation-delay: 3s; delays the animation
+	*/
 }
+ 
 
 .heading-primary-sub {
 	display: block;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 17.4px;
+
+	animation: moveInRight 1s ease-out;
+}
+
+/* for browser performance it's best to only animate opacity and transform */
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px); /* transforms on the X left to right */
+	}
+
+	80% {
+		transform: translateX(10px); /* a negative number is from the left while positive is right*/
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0)
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px); /* transforms on the X left to right */
+	}
+
+	80% {
+		transform: translateX(-10px); /* a negative number is from the left while positive is right*/
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0)
+	}
 }
