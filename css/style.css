@@ -34,4 +34,44 @@ body {
 	background-position: top; /*background-position anchors the part of the image selected i.e. bottom, top, center so that whenever the viewport changes that point stays the same */
 
 	clip-path: polygon(0 0, 100% 0,100% 75vh,0 100%); /* allows you clip part of an image based on coordinates*/ 
+
+	position: relative;
+}
+
+.logo-box {
+	position: absolute; 
+	top: 40px;
+	left: 40px;
+	/* the element takes its position from the parent element in this case the header*/
+}
+
+.Logo {
+	height: 35px; /* setting the height/width and the image will scale accordingly */
+}
+
+.heading-primary {
+	color: white;
+	text-transform: uppercase;
+}
+
+.text-box {
+	position: absolute;
+	top: 40%; /* in relation to the parent element*/
+	left: 50%; /* in relation to the parent element*/
+	transform: translate(-50%, -50%); /* shifts the element 50% top and right */
+}
+/* using the span element allows us to style individual elements within an element*/
+
+.heading-primary-main {
+	display: block; /* allows the text to take up it's own block space*/
+	font-size: 60px;
+	font-weight: 400;
+	letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+	display: block;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 17.4px;
 }
