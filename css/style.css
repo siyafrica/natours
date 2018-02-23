@@ -49,15 +49,16 @@ body {
 	height: 35px; /* setting the height/width and the image will scale accordingly */
 }
 
-.Logo:hover {
-	animation: moveInLeft 1s ease-out;
-}
+/*.Logo:hover {
+	animation: moveInLeft 1s ease-out; you can reuse the animation created on other elements
+}*/
 
 .text-box {
 	position: absolute;
 	top: 40%; /* in relation to the parent element*/
 	left: 50%; /* in relation to the parent element*/
 	transform: translate(-50%, -50%); /* shifts the element 50% top and right */
+	text-align: center;
 }
 
 /* there are two types of  CSS animations 
@@ -70,6 +71,8 @@ body {
 	text-transform: uppercase;
 
 	backface-visibility: hidden; /* fix for shake in animation - hides the part behind the element from the user */
+
+	margin-bottom: 60px;
 }
 
 /* using the span element allows us to style individual elements within an element*/
@@ -133,3 +136,73 @@ body {
 		transform: translate(0)
 	}
 }
+
+.btn:link,
+.btn:visited {
+	/* :link is a pseudo class for a link - this is a special state of a link */
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 15px 40px;
+	display: inline-block;
+	border-radius: 100px; /*adds rounded corners*/
+	transition: all .2s; /* this animates even the pseudo states*/
+	position: relative;
+}
+
+.btn:hover {
+	transform: translateY(-3px); /*moving the element up means transforming */
+	box-shadow: 0 5px 10px rgba(0,0,0, 0.2);/*specifies 1: offset, x value pos y value pos color*/
+}
+
+.btn:active {
+	transform: translateY(-1px);
+	box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+}
+
+.btn-white {
+	background-color: #fff;
+	color: #777;
+}
+
+/* example of after pseudo element 
+ it's treated like a child of the main element
+ need to set the */
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.btn-white::after {
+	background-color: #fff;
+	transition: all .4s;
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6); /* scale increase the size*/
+	opacity: 0; /* the trick to fading out*/
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px); /* transforms on the X left to right */
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0)
+	}
+}
+
+.btn-animated {
+	animation: moveInBottom .5s ease-out .75s;
+	animation-fill-mode: backwards; /*this automatically applies the style */
+}
+
